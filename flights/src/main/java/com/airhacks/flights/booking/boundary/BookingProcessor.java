@@ -2,6 +2,7 @@ package com.airhacks.flights.booking.boundary;
 
 import com.airhacks.flights.booking.control.Validator;
 import com.airhacks.flights.booking.entity.Booking;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
@@ -25,6 +26,10 @@ public class BookingProcessor {
             throw new IllegalStateException("Booking is not valid");
         }
         this.em.persist(booking);
+    }
+
+    public List<Booking> findAll() {
+        return this.em.createNamedQuery(Booking.findAll).getResultList();
     }
 
 }

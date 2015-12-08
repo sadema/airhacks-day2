@@ -1,6 +1,7 @@
 package com.airhacks.flights.booking.boundary;
 
 import com.airhacks.flights.booking.entity.Booking;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.ws.rs.GET;
@@ -22,8 +23,8 @@ public class BookingsResource {
     BookingProcessor processor;
 
     @GET
-    public Booking flight() {
-        return new Booking("42", 2);
+    public List<Booking> flight() {
+        return this.processor.findAll();
     }
 
     @POST

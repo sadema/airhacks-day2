@@ -20,6 +20,7 @@ public class BookingIT {
     @Before
     public void init() {
         this.em = Persistence.createEntityManagerFactory("it").createEntityManager();
+
         this.tx = this.em.getTransaction();
     }
 
