@@ -15,10 +15,10 @@ import javax.persistence.PersistenceContext;
 public class BookingProcessor {
 
     @PersistenceContext
-    EntityManager em;
+    private EntityManager em;
 
     @Inject
-    Validator validator;
+    private Validator validator;
 
     public void create(Booking booking) {
         if (!validator.isValid(booking)) {
